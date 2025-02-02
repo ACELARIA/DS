@@ -26,7 +26,6 @@ void appendNode(struct Node** head_ref, int data) {
     last->next = newNode;
 }
 
-// Function to print the linked list
 void printList(struct Node* head) {
     while (head != NULL) {
         printf("%d ", head->data);
@@ -35,13 +34,11 @@ void printList(struct Node* head) {
     printf("\n");
 }
 
-// Function to rotate the linked list counter-clockwise by k nodes
 void rotateList(struct Node** head_ref, int k) {
     if (*head_ref == NULL || k == 0) {
         return;
     }
 
-    // Determine the length of the linked list
     struct Node* current = *head_ref;
     int length = 1;
     while (current->next != NULL) {
@@ -49,13 +46,11 @@ void rotateList(struct Node** head_ref, int k) {
         length++;
     }
 
-    // If k is greater than or equal to length, take k modulo length
     k = k % length;
     if (k == 0) {
         return;
     }
 
-    // Traverse to the (k-1)-th node
     current = *head_ref;
     for (int i = 1; i < k; i++) {
         current = current->next;
