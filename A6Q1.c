@@ -51,6 +51,7 @@ int precedence(char operator) {
             return 1;
         case '*':
         case '/':
+        case '^':
             return 2;
         default:
             return 0; 
@@ -73,7 +74,7 @@ void infixToPostfix(char *infix, char *postfix) {
                 postfix[postfixIndex++] = pop();
             }
             pop(); 
-        } else if (strchr("+-*/", currentChar)) { 
+        } else if (strchr("+-*/^", currentChar)) { 
             while (!isEmpty() && precedence(currentChar) <= precedence(peek())) {
                 postfix[postfixIndex++] = pop();
             }
