@@ -19,6 +19,15 @@ int isEmpty(struct Queue* q) {
     return (q->front == NULL);  
 }
 
+int isFull() {
+    struct Node* temp = (struct Node*)malloc(sizeof(struct Node));
+    if (!temp) {
+        return 1; 
+    }
+    free(temp);
+    return 0;
+}
+
 void enqueue(struct Queue* q, int value) {
     struct Node* newNode = (struct Node*)malloc(sizeof(struct Node));  
     newNode->data = value; 
@@ -69,7 +78,8 @@ int main() {
         printf("2. Dequeue\n");
         printf("3. Peek\n");
         printf("4. Check if Queue is Empty\n");
-        printf("5. Exit\n");
+        printf("5. Check if Queue is Full\n");
+        printf("6. Exit\n");
         printf("Enter your choice: ");
         scanf("%d", &choice);
 
@@ -104,6 +114,13 @@ int main() {
                 break;
 
             case 5:
+                if (isFull(&q)) {
+                    printf("The queue is Full.\n");
+                } else {
+                    printf("The queue is not Full.\n");
+                }
+                break;
+            case 6:
                 printf("Exiting...\n");
                 return 0;
 
