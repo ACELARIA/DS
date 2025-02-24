@@ -59,11 +59,8 @@ int dequeue(struct PriorityQueue* queue) {
 
     struct Node* temp = queue->front;
     int data = temp->data;
-
     queue->front = temp->next;
-
     free(temp);
-
     return data;
 }
 
@@ -98,7 +95,6 @@ int main() {
 
         switch (choice) {
             case 1:
-                // Enqueue: Take user input for data and priority
                 printf("Enter data to enqueue: ");
                 scanf("%d", &data);
                 printf("Enter priority (higher value means higher priority): ");
