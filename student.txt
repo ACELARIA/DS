@@ -1,0 +1,5 @@
+Arushi,101,Computer Science
+Atish,102,Mathematics
+Arushi,103,Physics
+Raj,104,Chemistry
+Arushi,105,Mathematics
