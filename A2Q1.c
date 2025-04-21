@@ -33,20 +33,16 @@ void displayMatrix(int **matrix,int rows,int cols){
 
 int main(){
     int r1,c1,r2,c2;
-//Determine dimensions of Matrix A
 printf("enter rows and columns of matrix 1");
 scanf("%d%d",&r1,&c1);
 
-//Determine dimensions of Matrix B
 printf("enter rows and columns of matrix 2");
 scanf("%d%d",&r2,&c2);
 
-//Cond check A.Cols == B.Rows
     if (c1!=r2) {
         printf("Matrix multiplication is not possible with the given dimensions.\n");
         return -1;
     }
-//Allocate memory to Mat1 ,Mat2 and Result 
    int **mat1 = (int **)malloc(r1 * sizeof(int *));
     int **mat2 = (int **)malloc(r2 * sizeof(int *));
     int **result = (int **)malloc(r1 * sizeof(int *));
@@ -60,15 +56,11 @@ scanf("%d%d",&r2,&c2);
         result[i] = (int *)malloc(c2 * sizeof(int));
         }
 
-//Read Inputs to Matrix A & B.
 readMatrix(mat1, r1, c1);
 readMatrix(mat2, r2, c2);
 
-//Multiply tow matrices C=A*B
 multiplyMatrices(mat1, mat2, result, r1, c1, c2);
-//Display matrices
 displayMatrix(result,r1,c2);
-//Free memory – Matrix A 
 for (int i = 0; i < r1; i++) {
         free(mat1[i]);
     }
@@ -79,9 +71,7 @@ for (int i = 0; i < r1; i++) {
         free(result[i]);
     }
 free(mat1);
-//Free memory – Matrix B 
 free(mat2);
-//Free memory – Matrix C
 free(result);
 
 

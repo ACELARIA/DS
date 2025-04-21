@@ -6,7 +6,6 @@ typedef struct {
     int* array2;
 } StructOfPointers;
 
-// Function to read input elements for the array
 void ReadArrayInput(StructOfPointers* arrays, int n) {
     printf("Enter elements for the first array:\n");
     for (int i = 0; i < n; i++) {
@@ -50,13 +49,10 @@ if (arrays->array1 == NULL || arrays->array2==NULL) {
         printf("Memory allocation for array failed.\n");
         return 1;
     }
-// Input elements for the first array
     ReadArrayInput(arrays, n);
 
-// Process the arrays
     UpdateArray(arrays, n);
 
-// Print the original and modified arrays
     printf("Original array:\n");
     printArray(arrays->array1, n);
 
